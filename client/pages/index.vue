@@ -2,7 +2,7 @@
   <main class="content">
     <div class="viewport">
       <div class="frame"><SectionGreeting /></div>
-      <div class="frame"><SectionGreeting /></div>
+      <div class="frame"><AboutMe /></div>
       <div class="frame"><SectionGreeting /></div>
       <div class="frame"><SectionGreeting /></div>
       <div class="frame"><SectionGreeting /></div>
@@ -12,9 +12,10 @@
 
 <script>
 import SectionGreeting from "../components/SectionGreeting.vue";
+import AboutMe from "../components/AboutMe.vue";
 
 export default {
-  components: { SectionGreeting },
+  components: { SectionGreeting, AboutMe },
   mounted() {
     this.initZAxisScroll();
     setTimeout(() => window.scrollTo(0, 0), 100); // Невелика затримка
