@@ -1,14 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./components/**/*.{vue,js}",
+    "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
-    "./nuxt.config.{js,ts}",
+    "./app.vue",
+    "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        richBlack: "#OD1821",
+        indigoDye: "344966",
+        isabelline: "F5F1ED",
+        pictonBlue: "4EA5D9",
+        fandango: "A80874",
+      },
+      fontFamily: {
+        main: ["Inter", "sans-serif"],
+        mono: ["VT323", "monospace"],
+      },
+    },
   },
   plugins: [],
 };
