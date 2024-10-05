@@ -13,19 +13,21 @@
 export default {
   data() {
     return {
-      starCount: 100,
+      starCount: 200,
     };
   },
   methods: {
     getStarStyle() {
-      const duration = Math.random() * (10 - 3) + 3;
+      const duration = Math.random() * (15 - 5) + 5;
       const delay = Math.random() * 5;
       const left = Math.random() * 100;
+      const top = Math.random() * 200 - 100;
 
       return {
         animationDuration: `${duration}s`,
         animationDelay: `${delay}s`,
         left: `${left}%`,
+        top: `${top}vh`,
       };
     },
   },
@@ -39,31 +41,36 @@ body {
   align-items: center;
   min-height: 100vh;
   background: radial-gradient(ellipse at bottom, #0d1811 0%, #0d1821 100%);
-  overflow: hidden;
+  overflow-x: hidden;
+  margin: 0;
 }
 
 .stars {
   position: fixed;
-  top: -100vh;
-  left: -100vw;
-  width: 400vw;
-  height: 400vh;
-  transform: rotate(-45deg);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
 }
 
 .star {
   position: absolute;
-  bottom: 100%;
   width: 2px;
   height: 2px;
   background: white;
   border-radius: 50%;
   animation: fall linear infinite;
+  opacity: 1;
 }
 
 @keyframes fall {
+  from {
+    transform: translate(-100vw, -100vh) rotate(45deg); /* Починаються поза верхньою і лівою межами */
+    opacity: 1;
+  }
   to {
-    transform: translateY(200vh) rotate(30deg);
+    transform: translate(100vw, 200vh) rotate(45deg); /* Пролітають через екран по діагоналі */
     opacity: 1;
   }
 }
