@@ -22,7 +22,7 @@ export default {
   methods: {
     initZAxisScroll() {
       let lastPos = window.scrollY;
-      const zSpacing = -1000;
+      const zSpacing = -2000;
       const perspective = 1000;
       const frames = Array.from(document.querySelectorAll(".frame"));
       const zVals = [];
@@ -55,7 +55,7 @@ export default {
 <style>
 body {
   scroll-behavior: smooth;
-  height: 3700px;
+  height: 6200px;
   margin: 0;
 }
 
@@ -82,5 +82,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  transition: all 400ms ease;
 }
 </style>
