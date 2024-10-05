@@ -3,12 +3,14 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   app: {
     head: {
       link: [
@@ -19,4 +21,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  modules: ["@nuxt/eslint", "@nuxtjs/google-fonts"],
 });

@@ -11,11 +11,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        richBlack: "#OD1821",
-        indigoDye: "344966",
-        isabelline: "F5F1ED",
-        pictonBlue: "4EA5D9",
-        fandango: "A80874",
+        richBlack: "#0D1821",
+        indigoDye: "#344966",
+        isabelline: "#F5F1ED",
+        pictonBlue: "#4EA5D9",
+        fandango: "#A80874",
       },
       fontFamily: {
         main: ["Inter", "sans-serif"],
