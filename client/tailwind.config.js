@@ -18,7 +18,7 @@ export default {
         fandango: "#A80874",
       },
       fontFamily: {
-        main: ["Inter", "sans-serif"],
+        main: ["Roboto", "sans-serif"],
         mono: ["VT323", "monospace"],
       },
     },
