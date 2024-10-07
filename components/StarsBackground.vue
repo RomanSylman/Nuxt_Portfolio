@@ -1,10 +1,10 @@
 <template>
-  <div class="stars">
+  <div ref="starsContainer" class="stars">
     <div
-      v-for="index in starCount"
+      v-for="(style, index) in starStyles"
       :key="index"
       class="star"
-      :style="getStarStyle()"
+      :style="style"
     />
   </div>
 </template>
@@ -13,22 +13,68 @@
 export default {
   data() {
     return {
-      starCount: 200,
+      starCount: 100, // Базова кількість зірок
+      starStyles: [],
+      isStarsVisible: false,
     };
   },
+  watch: {
+    isStarsVisible(newVal) {
+      if (newVal) {
+        // Коли зірки стають видимими, запускаємо анімацію
+        this.generateStarStyles();
+      } else {
+        // Зупиняємо анімацію, коли зірки не в полі зору
+        this.starStyles = [];
+      }
+    },
+  },
+  mounted() {
+    this.setStarCountBasedOnDevice();
+    this.generateStarStyles();
+    this.initIntersectionObserver();
+  },
   methods: {
-    getStarStyle() {
-      const duration = Math.random() * (15 - 5) + 5;
-      const delay = Math.random() * 5;
-      const left = Math.random() * 100;
-      const top = Math.random() * 200 - 100;
+    setStarCountBasedOnDevice() {
+      // Зменшуємо кількість зірок для мобільних пристроїв
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 768) {
+        this.starCount = 50; // Наприклад, менше зірок для мобільних пристроїв
+      }
+    },
+    generateStarStyles() {
+      for (let i = 0; i < this.starCount; i++) {
+        const duration = Math.random() * (15 - 5) + 5;
+        const delay = Math.random() * 5;
+        const left = Math.random() * 100;
+        const top = Math.random() * 200 - 100;
 
-      return {
-        animationDuration: `${duration}s`,
-        animationDelay: `${delay}s`,
-        left: `${left}%`,
-        top: `${top}vh`,
+        this.starStyles.push({
+          animationDuration: `${duration}s`,
+          animationDelay: `${delay}s`,
+          left: `${left}%`,
+          top: `${top}vh`,
+        });
+      }
+    },
+    initIntersectionObserver() {
+      const observerOptions = {
+        root: null, // Спостерігаємо в межах вікна перегляду
+        threshold: 0.1, // Запускаємо, коли 10% блоку видно
       };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.isStarsVisible = true;
+          } else {
+            this.isStarsVisible = false;
+          }
+        });
+      }, observerOptions);
+
+      // Спостерігаємо за контейнером зірок
+      observer.observe(this.$refs.starsContainer);
     },
   },
 };

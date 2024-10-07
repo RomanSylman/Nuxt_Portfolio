@@ -2,30 +2,54 @@
   <main class="content pointer-events-none z-0">
     <div class="viewport pointer-events-none z-0">
       <StarsBackground />
-      <OrbitalLoader 
-        v-if="isLoading" 
-        :loading="true" 
-        class="flex justify-center items-center h-full w-full transition-transform duration-1000 opacity-100" 
+      <OrbitalLoader
+        v-if="isLoading"
+        :loading="true"
+        class="flex justify-center items-center h-full w-full transition-transform duration-1000 opacity-100"
         :class="{ 'moving-to-camera': isMovingToCamera }"
       />
-      <div v-show="!isLoading" class="frame"><SectionGreeting /></div>
-      <div v-show="!isLoading" class="frame"><AboutMe /></div>
-      <div v-show="!isLoading" class="frame"><SkillTree /></div>
-      <div v-show="!isLoading" class="frame"><RecentProjects /></div>
-      <div v-show="!isLoading" class="frame"><ContactMe /></div>
+      <div v-show="!isLoading" class="frame">
+        <LazySectionGreeting />
+      </div>
+      <div v-show="!isLoading" class="frame">
+        <LazyAboutMe />
+      </div>
+      <div v-show="!isLoading" class="frame">
+        <LazySkillTree />
+      </div>
+      <div v-show="!isLoading" class="frame">
+        <LazyRecentProjects />
+      </div>
+      <div v-show="!isLoading" class="frame">
+        <LazyContactMe />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
-import SectionGreeting from "../components/SectionGreeting.vue";
-import AboutMe from "../components/AboutMe.vue";
-import SkillTree from "../components/SkillTree.vue";
-import RecentProjects from "../components/RecentProjects.vue";
-import OrbitalLoader from "../components/OrbitalLoader.vue";
-
 export default {
-  components: { SectionGreeting, AboutMe, SkillTree, RecentProjects, OrbitalLoader },
+  components: {
+    OrbitalLoader: () => import("../components/OrbitalLoader.vue"),
+    LazySectionGreeting: () =>
+      import(
+        /* webpackChunkName: "section-greeting" */ "../components/SectionGreeting.vue"
+      ),
+    LazyAboutMe: () =>
+      import(/* webpackChunkName: "about-me" */ "../components/AboutMe.vue"),
+    LazySkillTree: () =>
+      import(
+        /* webpackChunkName: "skill-tree" */ "../components/SkillTree.vue"
+      ),
+    LazyRecentProjects: () =>
+      import(
+        /* webpackChunkName: "recent-projects" */ "../components/RecentProjects.vue"
+      ),
+    LazyContactMe: () =>
+      import(
+        /* webpackChunkName: "contact-me" */ "../components/ContactMe.vue"
+      ),
+  },
   data() {
     return {
       isLoading: true,
@@ -43,7 +67,7 @@ export default {
 
     setTimeout(() => {
       this.isMovingToCamera = true;
-      
+
       setTimeout(() => {
         this.isLoading = false;
       }, 1000);
