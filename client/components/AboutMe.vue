@@ -1,10 +1,10 @@
 <template>
   <main>
-    <StarsBackground class="-z-1000" />
+    <StarsBackground />
     <div class="flex flex-row justify-between gap-[300px]">
       <CubeAnimated class="mt-[100px]" />
       <section
-        class="-z-10 text-3xl font-main text-isabelline p-8 text-justify flex flex-col gap-5 w-[900px]"
+        class="-z-900 text-3xl font-main text-isabelline p-8 text-justify flex flex-col gap-5 w-[900px]"
       >
         <p>
           Let me tell you about my journey.

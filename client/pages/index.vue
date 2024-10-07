@@ -1,9 +1,9 @@
 <template>
-  <main class="content">
-    <div class="viewport">
+  <main class="content pointer-events-none z-0">
+    <div class="viewport pointer-events-none z-0">
       <div class="frame"><SectionGreeting /></div>
       <div class="frame"><AboutMe /></div>
-      <div class="frame"><SectionGreeting /></div>
+      <div class="frame"><SkillTree/></div>
       <div class="frame"><SectionGreeting /></div>
       <div class="frame"><SectionGreeting /></div>
     </div>
@@ -13,9 +13,10 @@
 <script>
 import SectionGreeting from "../components/SectionGreeting.vue";
 import AboutMe from "../components/AboutMe.vue";
+import SkillTree from "../components/SkillTree.vue";
 
 export default {
-  components: { SectionGreeting, AboutMe },
+  components: { SectionGreeting, AboutMe, SkillTree },
   mounted() {
     this.initZAxisScroll();
     setTimeout(() => window.scrollTo(0, 0), 100); // Невелика затримка
@@ -28,16 +29,16 @@ export default {
       const frames = Array.from(document.querySelectorAll(".frame"));
       const zVals = [];
 
-      // Ініціалізація початкових позицій
+     
       frames.forEach((frame, i) => {
-        zVals[i] = -i * zSpacing; // Зміщуємо по Z від 0
+        zVals[i] = -i * zSpacing;
         frame.style.transform = `translateZ(${zVals[i]}px)`;
       });
 
-      // Функція для плавного скролу
+      
       const onScroll = () => {
         const top = window.scrollY;
-        console.log("ScrollY:", top); // Перевірка значення скролу
+        console.log("ScrollY:", top);
         const delta = top - lastPos;
         lastPos = top;
 
@@ -55,6 +56,9 @@ export default {
 </script>
 <style>
 body {
+  position: relative;
+  z-index: -10;
+  pointer-events: auto;
   scroll-behavior: smooth;
   height: 6200px;
   margin: 0;
@@ -66,6 +70,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  pointer-events: auto;
 }
 
 .viewport {
@@ -74,6 +79,7 @@ body {
   transform-style: preserve-3d;
   width: 100%;
   height: 100%;
+  pointer-events: auto;
 }
 
 .frame {
@@ -84,5 +90,6 @@ body {
   width: 100%;
   height: 100%;
   transition: all 400ms ease;
+  pointer-events: auto;
 }
 </style>
