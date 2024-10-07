@@ -1,7 +1,7 @@
 <template>
   <main>
     <StarsBackground />
-    <section class="-z-1000 text-3xl font-mono text-isabelline text-center w-[900px]">
+    <section class="-z-1000 text-3xl font-mono text-isabelline text-center w-[900px] sm:w-[300px]">
       <h1 class="text-4xl pb-10">Greetings stranger!</h1>
       <p class="text-center whitespace-pre-line">{{ displayedText }}</p>
     </section>
