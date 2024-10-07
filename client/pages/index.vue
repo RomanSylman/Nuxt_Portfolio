@@ -5,7 +5,7 @@
       <div class="frame"><AboutMe /></div>
       <div class="frame"><SkillTree/></div>
       <div class="frame"><RecentProjects/></div>
-      <div class="frame"><SectionGreeting /></div>
+      <div class="frame"><ContactMe/></div>
     </div>
   </main>
 </template>
