@@ -4,7 +4,7 @@
       <div class="frame"><SectionGreeting /></div>
       <div class="frame"><AboutMe /></div>
       <div class="frame"><SkillTree/></div>
-      <div class="frame"><SectionGreeting /></div>
+      <div class="frame"><RecentProjects/></div>
       <div class="frame"><SectionGreeting /></div>
     </div>
   </main>
@@ -14,9 +14,10 @@
 import SectionGreeting from "../components/SectionGreeting.vue";
 import AboutMe from "../components/AboutMe.vue";
 import SkillTree from "../components/SkillTree.vue";
+import RecentProjects from "../components/RecentProjects.vue";
 
 export default {
-  components: { SectionGreeting, AboutMe, SkillTree },
+  components: { SectionGreeting, AboutMe, SkillTree, RecentProjects },
   mounted() {
     this.initZAxisScroll();
     setTimeout(() => window.scrollTo(0, 0), 100); // Невелика затримка
