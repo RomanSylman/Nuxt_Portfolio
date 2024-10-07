@@ -1,11 +1,18 @@
 <template>
   <main class="content pointer-events-none z-0">
     <div class="viewport pointer-events-none z-0">
-      <div class="frame"><SectionGreeting /></div>
-      <div class="frame"><AboutMe /></div>
-      <div class="frame"><SkillTree/></div>
-      <div class="frame"><RecentProjects/></div>
-      <div class="frame"><ContactMe/></div>
+      <StarsBackground />
+      <OrbitalLoader 
+        v-if="isLoading" 
+        :loading="true" 
+        class="flex justify-center items-center h-full w-full transition-transform duration-1000 opacity-100" 
+        :class="{ 'moving-to-camera': isMovingToCamera }"
+      />
+      <div v-show="!isLoading" class="frame"><SectionGreeting /></div>
+      <div v-show="!isLoading" class="frame"><AboutMe /></div>
+      <div v-show="!isLoading" class="frame"><SkillTree /></div>
+      <div v-show="!isLoading" class="frame"><RecentProjects /></div>
+      <div v-show="!isLoading" class="frame"><ContactMe /></div>
     </div>
   </main>
 </template>
@@ -15,12 +22,32 @@ import SectionGreeting from "../components/SectionGreeting.vue";
 import AboutMe from "../components/AboutMe.vue";
 import SkillTree from "../components/SkillTree.vue";
 import RecentProjects from "../components/RecentProjects.vue";
+import OrbitalLoader from "../components/OrbitalLoader.vue";
 
 export default {
-  components: { SectionGreeting, AboutMe, SkillTree, RecentProjects },
+  components: { SectionGreeting, AboutMe, SkillTree, RecentProjects, OrbitalLoader },
+  data() {
+    return {
+      isLoading: true,
+      isMovingToCamera: false,
+    };
+  },
   mounted() {
+    window.addEventListener("beforeunload", () => {
+      window.scrollTo(0, 0);
+    });
+
+    window.scrollTo(0, 0);
+
     this.initZAxisScroll();
-    setTimeout(() => window.scrollTo(0, 0), 100); // Невелика затримка
+
+    setTimeout(() => {
+      this.isMovingToCamera = true;
+      
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
+    }, 1000);
   },
   methods: {
     initZAxisScroll() {
@@ -30,16 +57,13 @@ export default {
       const frames = Array.from(document.querySelectorAll(".frame"));
       const zVals = [];
 
-     
       frames.forEach((frame, i) => {
         zVals[i] = -i * zSpacing;
         frame.style.transform = `translateZ(${zVals[i]}px)`;
       });
 
-      
       const onScroll = () => {
         const top = window.scrollY;
-        console.log("ScrollY:", top);
         const delta = top - lastPos;
         lastPos = top;
 
@@ -55,6 +79,7 @@ export default {
   },
 };
 </script>
+
 <style>
 body {
   position: relative;
@@ -92,5 +117,23 @@ body {
   height: 100%;
   transition: all 400ms ease;
   pointer-events: auto;
+}
+
+.moving-to-camera {
+  transform: translateZ(1000px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.transition-opacity {
+  transition: opacity 1s ease;
 }
 </style>

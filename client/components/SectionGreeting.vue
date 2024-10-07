@@ -21,11 +21,14 @@ export default {
       displayedText: '',
       typingSpeed: 50,
       currentLine: 0,
-      currentIndex: 0
+      currentIndex: 0,
+      loadingDuration: 2250,
     };
   },
   mounted() {
-    this.typeText();
+    setTimeout(() => {
+      this.typeText();
+    }, this.loadingDuration);
   },
   methods: {
     typeText() {
@@ -40,7 +43,6 @@ export default {
           this.currentLine++;
           this.currentIndex = 0;
         }
-
         setTimeout(this.typeText, this.typingSpeed);
       }
     }
