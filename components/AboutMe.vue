@@ -8,15 +8,15 @@
       >
         <p>
           Let me tell you about my journey.
-          <br >
-          <br >
+          <br>
+          <br>
           In 2022, I was really excited to get started with web development and
           explore the wonderful world of coding. Since then, I've thrown myself
           into front-end development, getting better and better at it and
           learning lots of different tools to build web applications of all
           shapes and sizes.
-          <br >
-          <br >
+          <br>
+          <br>
           My journey has been such a blessing! I've had the incredible
           opportunity to work with some amazingly talented developers at various
           startups. I've also had the chance to take part in code reviews, break
@@ -30,3 +30,14 @@
     </div>
   </main>
 </template>
+
+<script>
+import { defineAsyncComponent } from 'vue';
+
+export default {
+  components: {
+    StarsBackground: defineAsyncComponent(() => import('./StarsBackground.vue')),
+    CubeAnimated: defineAsyncComponent(() => import('./CubeAnimated.vue')),
+  },
+};
+</script>
