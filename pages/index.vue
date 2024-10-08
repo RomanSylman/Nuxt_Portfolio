@@ -33,21 +33,21 @@ export default {
     OrbitalLoader: () => import("../components/OrbitalLoader.vue"),
     LazySectionGreeting: () =>
       import(
-        /* webpackChunkName: "section-greeting" */ "../components/SectionGreeting.vue"
+         "../components/SectionGreeting.vue"
       ),
     LazyAboutMe: () =>
-      import(/* webpackChunkName: "about-me" */ "../components/AboutMe.vue"),
+      import( "../components/AboutMe.vue"),
     LazySkillTree: () =>
       import(
-        /* webpackChunkName: "skill-tree" */ "../components/SkillTree.vue"
+         "../components/SkillTree.vue"
       ),
     LazyRecentProjects: () =>
       import(
-        /* webpackChunkName: "recent-projects" */ "../components/RecentProjects.vue"
+         "../components/RecentProjects.vue"
       ),
     LazyContactMe: () =>
       import(
-        /* webpackChunkName: "contact-me" */ "../components/ContactMe.vue"
+        "../components/ContactMe.vue"
       ),
   },
   data() {
@@ -76,8 +76,8 @@ export default {
   methods: {
     initZAxisScroll() {
       let lastPos = window.scrollY;
-      const zSpacing = -2000;
-      const perspective = 1000;
+      const zSpacing = -1200;
+      const perspective = 300;
       const frames = Array.from(document.querySelectorAll(".frame"));
       const zVals = [];
 
@@ -110,7 +110,7 @@ body {
   z-index: -10;
   pointer-events: auto;
   scroll-behavior: smooth;
-  height: 6200px;
+  height: 4100px;
   margin: 0;
 }
 
@@ -125,7 +125,7 @@ body {
 
 .viewport {
   position: relative;
-  perspective: 1000px;
+  perspective: 900px;
   transform-style: preserve-3d;
   width: 100%;
   height: 100%;
