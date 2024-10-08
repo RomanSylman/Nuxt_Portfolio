@@ -26,7 +26,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
 .cube {
@@ -45,7 +44,7 @@
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  border: 2px dotted white;
+  border: 2px solid white;
 }
 
 .front { transform: translateZ(200px); }
@@ -95,8 +94,15 @@
   }
 }
 
-/* Оптимізація для мобільних пристроїв */
 @media (max-width: 768px) {
+
+.front { transform: translateZ(100px); }
+.back { transform: rotateY(180deg) translateZ(100px); }
+.right { transform: rotateY(90deg) translateZ(100px); }
+.left { transform: rotateY(-90deg) translateZ(100px); }
+.top { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
   .cube {
     width: 200px;
     height: 200px;
@@ -107,8 +113,11 @@
     height: 100px;
   }
 
-  .face {
-    font-size: 16px;
-  }
+.inner-cube .front { transform: translateZ(50px); }
+.inner-cube .back { transform: rotateY(180deg) translateZ(50px); }
+.inner-cube .right { transform: rotateY(90deg) translateZ(50px); }
+.inner-cube .left { transform: rotateY(-90deg) translateZ(50px); }
+.inner-cube .top { transform: rotateX(90deg) translateZ(50px); }
+.inner-cube .bottom { transform: rotateX(-90deg) translateZ(50px); }
 }
 </style>

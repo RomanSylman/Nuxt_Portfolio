@@ -1,8 +1,9 @@
 <template>
   <div>
     <StarsBackground class="z-1" />
+    <h2 class="text-3xl font-mono text-isabelline text-center">Recent Projects</h2>
     <div
-      class="recent-projects grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      class="recent-projects grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6"
     >
       <ProjectCard
         v-for="(project, index) in projects"
@@ -74,12 +75,7 @@ export default {
 </script>
 
 <style scoped>
-.project-card {
-  transition: filter 0.666s ease;
-}
-
-.project-card.blurred {
-  filter: blur(5px);
-  opacity: 0.6;
+.recent-projects {
+  margin-top: 40px;
 }
 </style>
