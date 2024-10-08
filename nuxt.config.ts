@@ -23,6 +23,7 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=VT323&display=swap",
         },
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
       ],
     },
   },
