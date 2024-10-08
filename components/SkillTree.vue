@@ -11,12 +11,12 @@
         <img ref="skill11" src="~/assets/icons/sass-svgrepo-com.svg" alt="Sass" class="skill">
         <img ref="skill5" src="~/assets/icons/react-javascript-js-framework-facebook-svgrepo-com.svg" alt="React" class="skill">
         <img ref="skill6" src="~/assets/icons/vue-svgrepo-com.svg" alt="Vue" class="skill">
-        <img ref="skill9" src="~/assets/icons/redux-svgrepo-com.svg" alt="Redux" class="skill">
+        <img ref="skill1" src="~/assets/icons/js-official-svgrepo-com.svg" alt="JS" class="skill">
         <img ref="skill12" src="~/assets/icons/node-js-svgrepo-com.svg" alt="Node.js" class="skill">
         <img ref="skill10" src="~/assets/icons/tailwind-svgrepo-com.svg" alt="Tailwind" class="skill">
         <img ref="skill13" src="~/assets/icons/mongo-svgrepo-com.svg" alt="MongoDB" class="skill">
         <img ref="skill7" src="~/assets/icons/next-js-svgrepo-com.svg" alt="Next.js" class="skill">
-        <img ref="skill1" src="~/assets/icons/js-official-svgrepo-com.svg" alt="JS" class="skill">
+        <img ref="skill9" src="~/assets/icons/redux-svgrepo-com.svg" alt="Redux" class="skill">
           <img ref="skill14" src="~/assets/icons/docker-svgrepo-com.svg" alt="Docker" class="skill">
           <img ref="skill15" src="~/assets/icons/git-svgrepo-com.svg" alt="Git" class="skill">
       </div>

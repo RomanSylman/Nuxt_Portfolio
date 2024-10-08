@@ -39,7 +39,7 @@ export default {
           github: "https://github.com/RomanSylman/Nuxt_Portfolio",
         },
         {
-          name: "Currency Converter",
+          name: "Converter",
           image: "currency-converter.png",
           github: "https://github.com/RomanSylman/currency-converser",
           demo: "https://currency-converser.vercel.app/",

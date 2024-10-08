@@ -77,7 +77,7 @@ export default {
     initZAxisScroll() {
       let lastPos = window.scrollY;
       const zSpacing = -1200;
-      const perspective = 300;
+      const perspective = 400;
       const frames = Array.from(document.querySelectorAll(".frame"));
       const zVals = [];
 
