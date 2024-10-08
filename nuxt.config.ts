@@ -13,6 +13,11 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      title: "Roman Sylman - Front-end developer",
+      meta: [
+        { name: "description", content: "My personal portfolio website." },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+      ],
       link: [
         {
           rel: "stylesheet",
