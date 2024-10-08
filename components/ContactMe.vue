@@ -4,7 +4,7 @@
       <h2 class="text-3xl font-mono text-isabelline text-center flex justify-center mb-20">
         Contact me
       </h2>
-      <div class="flex flex-row gap-20">
+      <div class="flex flex-row gap-10 md:gap-20">
         <div v-for="(link, index) in socialLinks" :key="index">
           <a :href="link.url" target="_blank" :aria-label="link.name">
             <component :is="link.icon"  class="svg" width="50" height="50"  />
