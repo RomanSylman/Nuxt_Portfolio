@@ -13,7 +13,7 @@
       </div>
       <div class="flex flex-col justify-center items-center mt-20 gap-5">
         <h3 class="text-2xl font-mono text-isabelline block">Download my CV</h3>
-        <a href="/CV.Frontend_Developer_Roman_Sylman.pdf" download><DownloadIcon /></a>
+        <a href="./CV. Frontend_Developer_Roman_Sylman.pdf" download><DownloadIcon /></a>
       </div>
     </div>
   </template>
