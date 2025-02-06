@@ -51,10 +51,9 @@ export default {
           demo: "https://romansylman.github.io/react_phone-catalog/",
         },
         {
-          name: "Chat App",
-          image: "chat.png",
-          github: "https://github.com/RomanSylman/Fullstack_React_mongo_node",
-          demo: "https://fullstack-react-mongo-node.vercel.app/",
+          name: "WeGold website",
+          image: "wegold.png",
+          demo: "https://wg-frontend-three.vercel.app/",
         },
         {
           name: "Reviewed App",

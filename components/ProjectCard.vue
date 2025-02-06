@@ -16,6 +16,7 @@
       </h3>
       <div class="flex justify-around">
         <a
+          v-if="githubLink"
           :href="githubLink"
           target="_blank"
           class="hover:scale-125 transition-all duration-300"
@@ -27,7 +28,7 @@
           >
         </a>
         <a
-          v-if="demoLink && projectName !== 'My Portfolio'"
+          v-if="demoLink"
           :href="demoLink"
           target="_blank"
           class="hover:scale-125 transition-all duration-300"
@@ -35,7 +36,7 @@
           <img
             src="~/assets/icons/play-svgrepo-com.svg"
             alt="Demo"
-             class="w-3 h-3 inline-block md:w-6 md:h-6"
+            class="w-3 h-3 inline-block md:w-6 md:h-6"
           >
         </a>
       </div>
@@ -56,7 +57,7 @@ export default {
     },
     githubLink: {
       type: String,
-      required: true,
+      default: null,
     },
     demoLink: {
       type: String,
